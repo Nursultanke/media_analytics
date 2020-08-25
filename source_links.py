@@ -11,12 +11,12 @@ urls = {
     #     'pars_link_list': get_url.get_urls_24,
     #     'pars_article': art.get_article_24,
     # },
-    'kloop.kg': {
-        'ru_link': 'https://kloop.kg/?s=' + keyword_ru,
-        'kg_link': 'https://ky.kloop.asia/?s=' + keyword_kg,
-        'pars_link_list': get_url.get_urls_kloop,
-        'pars_article': art.get_article_kloop,
-    },
+    # 'kloop.kg': {
+    #     'ru_link': 'https://kloop.kg/?s=' + keyword_ru,
+    #     'kg_link': 'https://ky.kloop.asia/?s=' + keyword_kg,
+    #     'pars_link_list': get_url.get_urls_kloop,
+    #     'pars_article': art.get_article_kloop,
+    # },
     # 'kaktus.media': {
     #     'ru_link': 'https://kaktus.media/?search=' + keyword_ru,
     #     'pars_link_list': get_url.get_urls_kaktus_media,
@@ -27,11 +27,11 @@ urls = {
     #     'pars_link_list': get_url.get_urls_rus_azattyk_org,
     #     'pars_article': art.get_article_azattyk_org,
     # },
-    # 'azattyk.org': {
-    #     'kg_link': 'https://www.azattyk.org/s?k=' + keyword_kg + '&tab=all&pi=1&r=any&pp=10',
-    #     'pars_link_list': get_url.get_urls_azattyk_org,
-    #     'pars_article': art.get_article_azattyk_org,
-    # },
+    'azattyk.org': {
+        'kg_link': 'https://www.azattyk.org/s?k=' + keyword_kg + '&tab=all&pi=1&r=any&pp=10',
+        'pars_link_list': get_url.get_urls_azattyk_org,
+        'pars_article': art.get_article_azattyk_org,
+    },
     # 'sputnik.kg': {
     #     'ru_link': 'https://ru.sputnik.kg/services/search/getmore/?' + keyword_ru + '=' + keyword_ru + '&search_area=all&query%5B%5D=' + keyword_ru + '&limit=20&offset=0&sort=date&interval=period',
     #     'kg_link': 'https://sputnik.kg/services/search/getmore/?' + keyword_kg + '=' + keyword_kg + '&search_area=all&query%5B%5D=' + keyword_kg + '&limit=20&offset=0&sort=date&interval=period' + keyword_kg,
