@@ -86,6 +86,22 @@ def get_article_azattyk_org(soup):
     return result
 
 
+def get_article_sputnik(soup):
+    result = {}
+    try:
+        result['article'] = soup.select('div.b-article__text')[0].getText(separator=u' ').strip().replace('\xa0', ' ')
+    except IndexError:
+        result['article'] = 'no article'
+    try:
+        result['title'] = soup.select('h1')[0].getText().strip().replace('\xa0', ' ').replace('\n', ' ')
+    except IndexError:
+        result['title'] = 'no title'
+    try:
+        result['date'] = soup.find('time').get('datetime')
+    except AttributeError:
+        pass
+    return result
+
 # sputnik
 
 

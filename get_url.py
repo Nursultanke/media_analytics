@@ -35,8 +35,15 @@ def get_urls_azattyk_org(soup):
 
 def get_urls_ru_sputnik_kg(soup):
     links = list()
-    for link in soup.select('h2.b-plainlist__title > a')[:10]:
+    for link in soup.select('h2.b-plainlist__title > a')[:5]:
         links.append('https://ru.sputnik.kg/' + link.get('href'))
+    return links
+
+
+def get_urls_sputnik_kg(soup):
+    links = list()
+    for link in soup.select('h2.b-plainlist__title > a')[:5]:
+        links.append('https://sputnik.kg/' + link.get('href'))
     return links
 
 
