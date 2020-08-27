@@ -43,17 +43,21 @@ urls = {
     #     'pars_article': art.get_article_sputnik,
     # },
     # 'ktrk.kg': {
-    #     'ru_link': 'http://www.ktrk.kg/ru/search?search=' + keyword_ru,
-    #     'kg_link': 'http://www.ktrk.kg/search?search=' + keyword_kg,
+    #     'ru_link': 'http://www.ktrk.kg/ru/category/29',
+    #     'kg_link': 'http://www.ktrk.kg/category/29',
     #     'pars_link_list': get_url.get_urls_ktrk_ru,
     #     'pars_article': art.get_article_ktrk,
     # },
     # 'kabar.kg': {
-    #     'ru_link': 'http://www.kabar.kg/search/?q=' + keyword_ru,
+    #     'ru_link': 'http://www.kabar.kg/cat/vybory-2020/',
     #     'pars_link_list': get_url.get_urls_kabar_kg,
     #     'pars_article': art.get_article_kabar,
     # },
     # 'kg.kabar.kg': {
+    #     'kg_link': 'http://kg.kabar.kg/search/?q=' + keyword_kg,
+    #     'pars_link_list': get_url.get_urls_kg_kabar_kg,
+    #     'pars_article': art.get_article_kabar,
+    # },    # 'kg.kabar.kg': {
     #     'kg_link': 'http://kg.kabar.kg/search/?q=' + keyword_kg,
     #     'pars_link_list': get_url.get_urls_kg_kabar_kg,
     #     'pars_article': art.get_article_kabar,
@@ -94,8 +98,7 @@ urls = {
     #     'pars_article': art.get_article_vb,
     # },
     # 'akipress.org': {
-    #     'ru_link': 'http://akipress.org/search/?query=' + keyword_ru + '&place=search-header&tools=1&s=0&p=0&d=0',
-    #     'kg_link': 'http://akipress.org/search/?query=' + keyword_kg + '&place=crosstop&hl=ky',
+    #     'ru_link': 'http://kg.akipress.org/find/?find=%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D1%8B&place=default-form&s=0&p=1&d=1&tools=1',
     #     'pars_link_list': get_url.get_urls_akipress_org,
     #     'pars_article': art.get_article_akipress,
     # },
@@ -106,14 +109,14 @@ urls = {
     #     'pars_article': art.get_article_elgezit,
     # },
     # 'media-center.kg': {
-    #     'ru_link': 'https://media-center.kg/ru/search?query=' + keyword_ru,
-    #     'kg_link': 'https://media-center.kg/kg/search?query=' + keyword_kg,
+    #     'ru_link': 'https://media-center.kg/ru/category/voting-2020',
+    #     'kg_link': 'https://media-center.kg/kg/category/voting-2020',
     #     'pars_link_list': get_url.get_urls_media_center_kg,
     #     'pars_article': art.get_article_media_center,
     # },
     # 'reporter.kg': {
-    #     'ru_link': 'https://ru.reporter.kg/?s=' + keyword_ru,
-    #     'kg_link': 'https://reporter.kg/?s=' + keyword_kg,
+    #     'ru_link': 'https://ru.reporter.kg/category/vybory-2020/',
+    #     'kg_link': 'https://reporter.kg/category/shajloo-2020/',
     #     'pars_link_list': get_url.get_urls_reporter_kg,
     #     'pars_article': art.get_article_reporter,
     # },
@@ -230,6 +233,16 @@ urls = {
     #     'ru_link': 'https://kabarlar.org/election2020',
     #     'pars_link_list': get_url.get_urls_kabarlar_kg,
     #     'pars_article': art.get_article_kabarlar,
+    # },
+    'racurs.kg': {
+        'kg_link': 'https://racurs.kg/?s=' + keyword_kg,
+        'pars_link_list': get_url.get_urls_racurs_kg,
+        'pars_article': art.get_article_racurs,
+    },
+    # 'super.info': {
+    #     'kg_link': 'https://www.super.kg/search/?where_to_search=article&search_term=' + keyword_kg + '&x=0&y=0',
+    #     'pars_link_list': get_url.get_urls_super_info,
+    #     'pars_article': art.get_article_super_info,
     # },
 }
 

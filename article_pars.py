@@ -1,7 +1,8 @@
 def get_article_24(soup):
     result = {}
     try:
-        result['article'] = soup.select('div[itemprop="articleBody"]')[0].getText(separator=u' ').strip().replace('\xa0', ' ')
+        result['article'] = soup.select('div[itemprop="articleBody"]')[0].getText(separator=u' ').strip().replace(
+            '\xa0', ' ')
     except IndexError:
         result['article'] = 'no article'
     try:
@@ -22,7 +23,8 @@ def get_article_24(soup):
 def get_article_kloop(soup):
     result = {}
     try:
-        result['article'] = soup.select('div[data-ui-id="post"]')[0].getText(separator=u' ').strip().replace('\xa0', ' ')
+        result['article'] = soup.select('div[data-ui-id="post"]')[0].getText(separator=u' ').strip().replace('\xa0',
+                                                                                                             ' ')
     except IndexError:
         result['article'] = 'no article'
     try:
@@ -34,7 +36,8 @@ def get_article_kloop(soup):
     except AttributeError:
         pass
     try:
-        result['author'] = soup.find('div', class_='td-post-author-name').find('a').getText().strip().replace('\xa0', ' ')
+        result['author'] = soup.find('div', class_='td-post-author-name').find('a').getText().strip().replace('\xa0',
+                                                                                                              ' ')
     except AttributeError:
         pass
     return result
@@ -101,8 +104,6 @@ def get_article_sputnik(soup):
     except AttributeError:
         pass
     return result
-
-# sputnik
 
 
 def get_article_ktrk(soup):
@@ -279,7 +280,28 @@ def get_article_vb(soup):
     try:
         result['author'] = soup.select('span.topic-authors')[0].getText().strip()
     except IndexError:
-        result['author'] = 'no author'
+        pass
+    return result
+
+
+def get_article_akipress(soup):
+    result = {}
+    article = ''
+    article_items = soup.find('div', class_='text').find_all('p')
+    for item in article_items:
+        article = article + item.getText()
+    try:
+        result['article'] = article.strip().replace('\xa0', ' ')
+    except AttributeError:
+        result['article'] = 'no article'
+    try:
+        result['title'] = soup.find('h1').getText().replace('\xa0', ' ').replace('\n', ' ').strip()
+    except AttributeError:
+        result['title'] = 'no title'
+    try:
+        result['date'] = soup.find('div', class_='ext').getText()
+    except AttributeError:
+        pass
     return result
 
 
@@ -620,7 +642,8 @@ def get_article_maralfm(soup):
 def get_article_chyndyk_media(soup):
     result = {}
     try:
-        result['article'] = soup.select('div.td-post-content.tagdiv-type')[0].getText(separator=u' ').strip().replace(  '\xa0', ' ')
+        result['article'] = soup.select('div.td-post-content.tagdiv-type')[0].getText(separator=u' ').strip().replace(
+            '\xa0', ' ')
     except IndexError:
         result['article'] = 'no article'
     try:
@@ -645,7 +668,8 @@ def get_article_argument(soup):
     except IndexError:
         result['article'] = 'no article'
     try:
-        result['title'] = soup.find('div', class_='post-header').find('h2').getText().replace('\xa0', ' ').replace('\n', ' ').strip()
+        result['title'] = soup.find('div', class_='post-header').find('h2').getText().replace('\xa0', ' ').replace('\n',
+                                                                                                                   ' ').strip()
     except AttributeError:
         result['title'] = 'no title'
     try:
@@ -808,8 +832,48 @@ def get_article_kabarlar(soup):
         result['date'] = soup.select('div#meta')[2].getText().strip()
     except IndexError:
         pass
+    return result
+
+
+def get_article_racurs(soup):
+    result = {}
+    article = ''
+    article_items = soup.find('div', class_='td-post-content tagdiv-type').find_all('p')
+    for item in article_items:
+        article = article + item.getText()
     try:
+        result['article'] = article.strip().replace('\xa0', ' ')
+    except AttributeError:
+        result['article'] = 'no article'
+    try:
+        result['title'] = soup.select('h1')[0].getText().replace('\xa0', ' ').replace('\n', ' ').strip()
+
+    except IndexError:
+        result['title'] = 'no title'
+    try:
+        result['date'] = soup.find('time').get('datetime')
+    except IndexError:
         pass
+    return result
+
+
+def get_article_super_info(soup):
+    result = {}
+    try:
+        result['author'] = soup.select('p[align="right"] > strong')[0].getText()
+        soup.select('p[align="right"]')[0].decompose()
+    except IndexError:
+        pass
+    try:
+        result['article'] = soup.select('div.text_b')[0].getText(separator=u' ').strip().replace('\xa0', ' ').strip()
+    except IndexError:
+        result['article'] = 'no article'
+    try:
+        result['title'] = soup.find('h2', id='article_id').getText().replace('\xa0', ' ').replace('\n', ' ').strip()
+    except AttributeError:
+        result['title'] = 'no title'
+    try:
+        result['date'] = soup.select('p[style="color:#777; font-size:12px;"]')[0].getText().strip().split(' ')[1][:-1]
     except IndexError:
         pass
     return result
